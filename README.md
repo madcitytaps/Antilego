@@ -27,6 +27,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 No environment variables are required for the marketing site.
 
+Last updated: May 28, 2026.
+
 ## Repo layout
 
 | Path | Purpose |
