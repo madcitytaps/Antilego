@@ -1,28 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const CAL_EMBED_SCRIPT = "https://app.cal.com/embed/embed.js";
-
-declare global {
-  interface Window {
-    Cal?: CalGlobal;
-  }
-}
-
-type CalGlobal = {
-  loaded?: boolean;
-  ns: Record<string, CalNamespaceFn>;
-  q?: unknown[];
-  (command: string, ...args: unknown[]): void;
-};
-
-type CalNamespaceFn = {
-  q?: unknown[];
-  (command: string, ...args: unknown[]): void;
-};
-
-declare const Cal: CalGlobal;
+const CONTACT_EMAIL = "antilego.activism193@passmail.net";
 
 const EXPECTATIONS = [
   {
@@ -38,57 +18,6 @@ const EXPECTATIONS = [
     body: "You'll leave knowing fit, timeline, and what a custom build would look like.",
   },
 ] as const;
-
-/** Cal.com inline embed — official loader + your namespace config. */
-function loadCalEmbed() {
-  (function (C, A, L) {
-    const p = function (a: { q?: unknown[] }, ar: unknown[]) {
-      a.q = a.q || [];
-      a.q.push(ar);
-    };
-    const d = C.document;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    C.Cal = C.Cal || function (this: any) {
-      const cal = C.Cal;
-      const ar = arguments;
-      if (!cal.loaded) {
-        cal.ns = {};
-        cal.q = cal.q || [];
-        d.head.appendChild(d.createElement("script")).src = A;
-        cal.loaded = true;
-      }
-      if (ar[0] === L) {
-        const api = function () {
-          p(api, arguments);
-        };
-        const namespace = ar[1];
-        api.q = api.q || [];
-        if (typeof namespace === "string") {
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          p(cal.ns[namespace], ar);
-          p(cal, ["initNamespace", namespace]);
-        } else {
-          p(cal, ar);
-        }
-        return;
-      }
-      p(cal, ar);
-    };
-  })(window, CAL_EMBED_SCRIPT, "init");
-
-  Cal("init", "free-ai-demo-call", { origin: "https://app.cal.com" });
-
-  Cal.ns["free-ai-demo-call"]("inline", {
-    elementOrSelector: "#my-cal-inline-free-ai-demo-call",
-    config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
-    calLink: "eli-berner/free-ai-demo-call",
-  });
-
-  Cal.ns["free-ai-demo-call"]("ui", {
-    hideEventTypeDetails: false,
-    layout: "month_view",
-  });
-}
 
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -110,35 +39,11 @@ function CheckIcon({ className }: { className?: string }) {
   );
 }
 
-function ArrowDownIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden
-    >
-      <path
-        d="M8 3v8M5 8l3 3 3-3"
-        stroke="currentColor"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
+/** Contact / schedule section stub — text or email only (no calendar embed). */
 export default function BookingSection() {
-  const initialized = useRef(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!initialized.current) {
-      initialized.current = true;
-      loadCalEmbed();
-    }
-
     const section = document.getElementById("book-demo");
     if (!section || !("IntersectionObserver" in window)) {
       setVisible(true);
@@ -158,11 +63,9 @@ export default function BookingSection() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToCalendar = () => {
-    document
-      .getElementById("booking-calendar")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    "Antilego demo — schedule a time"
+  )}`;
 
   return (
     <section
@@ -170,7 +73,6 @@ export default function BookingSection() {
       aria-labelledby="booking-heading"
       className="relative overflow-hidden bg-black py-24 text-white sm:py-32"
     >
-      {/* Ambient glow */}
       <div
         className="pointer-events-none absolute inset-0 animate-booking-pulse bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(37,99,235,0.14),transparent_65%)]"
         aria-hidden
@@ -186,7 +88,6 @@ export default function BookingSection() {
           visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
         ].join(" ")}
       >
-        {/* Header */}
         <header className="mx-auto max-w-3xl text-center">
           <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-[#3b82f6]">
             Free strategy call
@@ -195,12 +96,11 @@ export default function BookingSection() {
             id="booking-heading"
             className="mt-3 text-balance font-display text-[clamp(2rem,5vw,3rem)] font-light leading-[1.12] tracking-[-0.02em] text-white"
           >
-            Ready to see custom AI in action?
+            Text or email to schedule.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-pretty font-sans text-base font-light leading-[1.65] text-[#888888] sm:text-[17px]">
-            Book a demo and we&apos;ll show you how an AI receptionist answers
-            every call, books appointments, and qualifies leads — 24/7, built for
-            your business.
+            Skip the calendar widget — tell us when you&apos;re free and how to
+            reach you. We&apos;ll confirm a 30-minute demo by text or email.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -213,27 +113,22 @@ export default function BookingSection() {
             </span>
           </div>
 
-          <button
-            type="button"
-            onClick={scrollToCalendar}
-            className="group mt-10 inline-flex items-center justify-center gap-2 rounded bg-[#2563eb] px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white shadow-[0_0_32px_rgba(37,99,235,0.15)] transition duration-200 hover:scale-[1.025] hover:bg-[#3b82f6] hover:shadow-[0_0_48px_rgba(37,99,235,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
-          >
-            Pick a time below
-            <ArrowDownIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
-          </button>
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <a
+              href={mailto}
+              className="inline-flex items-center justify-center rounded bg-[#2563eb] px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white shadow-[0_0_32px_rgba(37,99,235,0.15)] transition duration-200 hover:scale-[1.025] hover:bg-[#3b82f6] hover:shadow-[0_0_48px_rgba(37,99,235,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
+            >
+              Email to schedule
+            </a>
+            <a
+              href="#schedule-form"
+              className="inline-flex items-center justify-center rounded border border-[#1e1e1e] bg-transparent px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white transition duration-200 hover:border-[#2563eb] hover:bg-[#111111] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
+            >
+              Leave your number
+            </a>
+          </div>
         </header>
 
-        {/* Shimmer divider */}
-        <div
-          className="mx-auto mt-14 h-px w-full max-w-xs animate-divider-shimmer bg-gradient-to-r from-transparent via-[#1e1e1e] to-transparent sm:max-w-sm"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg, transparent, #1e1e1e 20%, #2563eb 50%, #1e1e1e 80%, transparent)",
-          }}
-          aria-hidden
-        />
-
-        {/* Content grid */}
         <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-10 lg:items-start">
           <aside className="lg:sticky lg:top-28">
             <div className="rounded border border-[#1e1e1e] bg-[#0a0a0a] p-6 sm:p-8">
@@ -276,40 +171,27 @@ export default function BookingSection() {
             </div>
           </aside>
 
-          {/* Calendar card */}
           <div
-            id="booking-calendar"
-            className="relative overflow-hidden rounded border border-[#1e1e1e] bg-[#0a0a0a] shadow-[0_0_0_1px_rgba(37,99,235,0.08),0_24px_48px_-12px_rgba(0,0,0,0.6)]"
+            id="schedule-form"
+            className="rounded border border-[#1e1e1e] bg-[#0a0a0a] p-6 sm:p-8"
           >
-            <div
-              className="pointer-events-none absolute inset-0 rounded bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,rgba(37,99,235,0.06),transparent)]"
-              aria-hidden
-            />
-            <div className="relative flex items-center justify-between gap-4 border-b border-[#1e1e1e] px-5 py-4 sm:px-6">
-              <div>
-                <p className="font-sans text-sm font-medium text-white">
-                  Select a time
-                </p>
-                <p className="mt-0.5 font-sans text-xs font-light text-[#888888]">
-                  Local timezone · Free AI demo call
-                </p>
-              </div>
-              <span className="hidden shrink-0 rounded border border-[#1e1e1e] bg-[#111111] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[#3b82f6] sm:inline-block">
-                Cal.com
-              </span>
-            </div>
-            <div className="relative min-h-[520px] p-1 sm:min-h-[620px] sm:p-3">
-              <div
-                id="my-cal-inline-free-ai-demo-call"
-                style={{ width: "100%", height: "100%", overflow: "scroll" }}
-                className="min-h-[480px] w-full sm:min-h-[560px]"
-              />
-            </div>
+            <h3 className="font-sans text-lg font-medium text-white">
+              Request a demo time
+            </h3>
+            <p className="mt-2 font-sans text-sm font-light leading-relaxed text-[#888888]">
+              Prefer the live site form in{" "}
+              <code className="font-mono text-xs text-[#3b82f6]">index.html</code>
+              . This React stub is for a future Next.js migration.
+            </p>
+            <a
+              href={mailto}
+              className="mt-6 inline-flex font-mono text-sm text-[#3b82f6] underline-offset-4 hover:underline"
+            >
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </div>
-
       </div>
-
     </section>
   );
 }

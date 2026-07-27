@@ -1,11 +1,11 @@
 # Antilego
 
-Marketing site for **Antilego** — an AI receptionist agency. Single-page static site with Cal.com booking embed.
+Marketing site for **Antilego** — an AI receptionist agency. Single-page static site; demos are scheduled by text or email (no calendar embed).
 
 ## Stack
 
 - Static `index.html` (no build step)
-- [Cal.com](https://cal.com) inline embed for demo booking
+- Text / email schedule request form (opens the visitor’s mail client)
 - Optional React/Tailwind scaffolding in `app/`, `components/`, `lib/` for a future Next.js migration
 
 ## Local preview
@@ -27,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 No environment variables are required for the marketing site.
 
-Last updated: May 28, 2026.
+Last updated: Jul 27, 2026.
 
 ## Repo layout
 

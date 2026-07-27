@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antilego — AI Receptionist Agency</title>
-  <meta name="description" content="Antilego deploys AI receptionists that handle every call, book appointments, and qualify leads — 24/7." />
+  <meta name="description" content="Stop losing leads to missed calls. Antilego AI receptionists answer every call, book appointments, and qualify leads — 24/7." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet" />
@@ -718,7 +718,7 @@
     }
 
     .contact__inner--book {
-      max-width: min(960px, 100%);
+      max-width: 720px;
     }
 
     .contact__header {
@@ -753,99 +753,63 @@
       flex-shrink: 0;
     }
 
-    .contact__calendar-wrap {
-      width: 100%;
-      text-align: left;
+    .schedule-channels {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 32px;
     }
 
-    .contact__calendar-wrap + .contact__actions {
-      margin-top: 48px;
+    @media (min-width: 560px) {
+      .schedule-channels {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .contact__calendar-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--surface);
-      box-shadow:
-        0 0 0 1px rgba(37, 99, 235, 0.08),
-        0 24px 48px -12px rgba(0, 0, 0, 0.6);
-    }
-
-    .contact__calendar-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse 80% 40% at 50% 0%,
-        rgba(37, 99, 235, 0.06) 0%,
-        transparent 70%
-      );
-      pointer-events: none;
-    }
-
-    .contact__calendar-head {
-      position: relative;
+    .schedule-channel {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 20px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    .contact__calendar-head p {
-      margin: 0;
+    .schedule-channel:hover {
+      border-color: var(--accent);
+      background: var(--surface-2);
     }
 
-    .contact__calendar-title {
-      font-size: 14px;
+    .schedule-channel:focus-visible {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 3px;
+    }
+
+    .schedule-channel__label {
+      font-size: 11px;
       font-weight: 500;
-      color: var(--text);
-    }
-
-    .contact__calendar-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .contact__calendar-tag {
-      flex-shrink: 0;
-      padding: 4px 10px;
-      font-family: "Space Mono", ui-monospace, monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent-light);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
     }
 
-    .contact__calendar-body {
-      position: relative;
-      min-height: 520px;
-      padding: 8px;
+    .schedule-channel__value {
+      font-family: "Space Mono", ui-monospace, monospace;
+      font-size: clamp(15px, 2.4vw, 18px);
+      color: var(--text);
+      letter-spacing: 0.02em;
+      word-break: break-all;
     }
 
-    @media (min-width: 640px) {
-      .contact__calendar-body {
-        min-height: 600px;
-        padding: 12px;
-      }
-    }
-
-    #my-cal-inline-free-ai-demo-call {
-      min-height: 480px;
-      width: 100%;
-    }
-
-    @media (min-width: 640px) {
-      #my-cal-inline-free-ai-demo-call {
-        min-height: 560px;
-      }
+    .schedule-channel__hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.45;
     }
 
     .contact h2 {
@@ -1009,6 +973,352 @@
       user-select: none;
     }
 
+    .btn--secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      box-shadow: none;
+      color: var(--text);
+    }
+
+    .btn--secondary:hover {
+      background: var(--surface-2);
+      border-color: var(--accent);
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
+    .hero__outcomes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 28px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero__outcomes li {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .hero__outcomes strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .results {
+      background: var(--bg);
+    }
+
+    .results__grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .results__grid {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: stretch;
+      }
+    }
+
+    .results__case {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+
+    .results__case h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .results__case p {
+      margin: 0 0 20px;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .results__metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .results__metric {
+      text-align: left;
+    }
+
+    .results__metric-value {
+      display: block;
+      font-family: "Space Mono", ui-monospace, monospace;
+      font-size: clamp(22px, 3vw, 28px);
+      color: var(--accent-light);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .results__metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    .results__quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .results__quote {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .results__quote p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .results__quote cite {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .pricing-card__role {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+
+    .pricing-card--featured .pricing-card__role {
+      margin-top: 8px;
+    }
+
+    .plan-interest {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 16px;
+      margin: 0 auto 28px;
+      max-width: 640px;
+      padding: 14px 20px;
+      background: var(--surface);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      border-radius: 8px;
+    }
+
+    .plan-interest[hidden] {
+      display: none;
+    }
+
+    .plan-interest__text {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .plan-interest__text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .plan-interest__clear {
+      font-size: 12px;
+      color: var(--accent-light);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: inherit;
+    }
+
+    .plan-interest__clear:hover {
+      color: var(--text);
+    }
+
+    .schedule {
+      text-align: left;
+      margin: 0 auto;
+      padding: 36px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .schedule__head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .schedule__head h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .schedule__head p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .schedule__form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .schedule__row {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .schedule__row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .schedule__field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .schedule__field label {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .schedule__field input,
+    .schedule__field select,
+    .schedule__field textarea {
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color 0.2s ease;
+    }
+
+    .schedule__field input:focus,
+    .schedule__field select:focus,
+    .schedule__field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .schedule__field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .schedule__field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23888888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .schedule__method {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .schedule__method-option {
+      position: relative;
+    }
+
+    .schedule__method-option input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .schedule__method-option span {
+      display: block;
+      text-align: center;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .schedule__method-option input:checked + span {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(37, 99, 235, 0.12);
+    }
+
+    .schedule__method-option input:focus-visible + span {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .schedule__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .schedule__status {
+      margin: 12px 0 0;
+      font-size: 13px;
+      color: var(--accent-light);
+      text-align: center;
+      min-height: 1.2em;
+    }
+
+    .schedule__status[data-tone="error"] {
+      color: #f87171;
+    }
+
   </style>
 </head>
 <body>
@@ -1025,11 +1335,12 @@
       <div class="nav__links">
         <a class="nav__link" href="#how-it-works">How It Works</a>
         <a class="nav__link" href="#benefits">Benefits</a>
+        <a class="nav__link" href="#results">Results</a>
         <a class="nav__link" href="#pricing">Pricing</a>
         <a class="nav__link" href="#contact">Contact</a>
       </div>
       <div class="nav__actions">
-        <a class="btn btn--nav" data-booking href="#book-demo">Book a demo</a>
+        <a class="btn btn--nav" data-booking data-plan="demo" href="#book-demo">Schedule a demo</a>
       </div>
     </div>
   </nav>
@@ -1039,18 +1350,21 @@
       <div class="hero__pulse" aria-hidden="true"></div>
       <div class="hero__inner">
         <h1 class="hero__headline" id="hero-heading">
-          Your Business,<br />
-          Always Answered.
+          Never miss another<br />
+          paying call.
         </h1>
         <p class="hero__sub">
-          Antilego deploys AI receptionists that handle every call, book appointments, and qualify leads — 24 hours a day, 7 days a week.
+          Antilego puts an AI receptionist on your line that answers every call, books appointments, and qualifies leads — so you capture revenue nights, weekends, and busy hours used to lose.
         </p>
+        <ul class="hero__outcomes" aria-label="Typical outcomes">
+          <li><strong>Every call</strong> answered</li>
+          <li><strong>After-hours</strong> leads booked</li>
+          <li><strong>Staff hours</strong> returned to the work</li>
+        </ul>
         <div class="hero__cta-stack">
-          <a class="btn" data-booking href="#book-demo" id="cta-book-demo">Book a demo</a>
+          <a class="btn" data-booking data-plan="demo" href="#book-demo" id="cta-book-demo">Schedule a free demo</a>
           <p class="hero__tier">
-            <a data-booking href="#book-demo">Pick a time on the calendar below</a>
-            ·
-            <a href="mailto:antilego.activism193@passmail.net">Email us directly</a>
+            <a data-booking data-plan="demo" href="#book-demo">Text or email us — 30 min, no commitment</a>
           </p>
         </div>
       </div>
@@ -1087,32 +1401,33 @@
       <div class="container">
         <header class="section-head">
           <p class="section-label">Why Antilego</p>
-          <h2 class="section-title" id="benefits-heading">Built for businesses that can't afford to miss a call.</h2>
+          <h2 class="section-title" id="benefits-heading">Turn missed calls into booked jobs.</h2>
+          <p class="section-sub">Built for teams that lose revenue every time the phone rings unanswered.</p>
         </header>
         <div class="benefits__grid">
           <article class="benefit-card">
-            <h3>24/7 Availability</h3>
-            <p>Never miss a lead again. Your AI receptionist works nights, weekends, and holidays.</p>
+            <h3>Recover after-hours revenue</h3>
+            <p>Nights, weekends, and holidays still convert — your AI receptionist stays on the line when you can't.</p>
           </article>
           <article class="benefit-card">
-            <h3>Instant Response</h3>
-            <p>Every call answered in under 2 seconds. No hold music. No voicemail.</p>
+            <h3>Answer in under 2 seconds</h3>
+            <p>Callers get help immediately. No hold music, no voicemail black hole, no “we'll call you back.”</p>
           </article>
           <article class="benefit-card">
-            <h3>Appointment Booking</h3>
-            <p>Automatically schedules meetings directly into your calendar.</p>
+            <h3>Book straight to your calendar</h3>
+            <p>Qualified callers leave with a confirmed appointment — not a callback request that dies in your inbox.</p>
           </article>
           <article class="benefit-card">
-            <h3>Lead Qualification</h3>
-            <p>Asks the right questions and filters out time-wasters before they reach you.</p>
+            <h3>Only talk to real leads</h3>
+            <p>Your AI asks the qualifying questions first, so your team spends time on jobs that can close.</p>
           </article>
           <article class="benefit-card">
-            <h3>Natural Conversation</h3>
-            <p>Not too robotic — but not trying to sound human either. Flows naturally and eloquently with customers.</p>
+            <h3>Conversations that convert</h3>
+            <p>Clear, natural dialogue trained on your services and brand — confident without sounding fake.</p>
           </article>
           <article class="benefit-card">
-            <h3>Affordable Scale</h3>
-            <p>Fraction of the cost of a human receptionist. No sick days, no training time.</p>
+            <h3>Scale without payroll</h3>
+            <p>Cover more volume at a fraction of a full-time receptionist — no sick days, no ramp time.</p>
           </article>
         </div>
       </div>
@@ -1121,7 +1436,7 @@
     <section class="trust reveal" id="trust" aria-labelledby="trust-heading">
       <div class="container">
         <h2 class="sr-only" id="trust-heading">Who we help</h2>
-        <p class="trust__line">We save time and money for —</p>
+        <p class="trust__line">Built for high-call businesses in —</p>
         <div class="trust__pills" role="list">
           <span class="trust__pill" role="listitem">Home Services</span>
           <span class="trust__pill" role="listitem">Contractors</span>
@@ -1129,8 +1444,56 @@
           <span class="trust__pill" role="listitem">Law Firms</span>
           <span class="trust__pill" role="listitem">Real Estate</span>
         </div>
-        <div class="trust__quote">
-          <p>Less time on the phone, less money on staffing — whether you're a home services crew in the field or any business on this list.</p>
+      </div>
+    </section>
+
+    <section class="results reveal" id="results" aria-labelledby="results-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-label">Proof</p>
+          <h2 class="section-title" id="results-heading">What changes when every call gets answered.</h2>
+          <p class="section-sub">
+            A typical rollout: connect your line, train on your services, and start recovering the leads that used to hit voicemail.
+          </p>
+        </header>
+        <div class="results__grid">
+          <article class="results__case">
+            <h3>From voicemail black hole to booked calendar</h3>
+            <p>
+              Before Antilego, after-hours and overflow calls often meant a callback list that never got worked.
+              After go-live, callers get answers immediately, appointments land on the calendar, and your team
+              only steps in for qualified conversations.
+            </p>
+            <div class="results__metrics">
+              <div class="results__metric">
+                <span class="results__metric-value">24/7</span>
+                <span class="results__metric-label">Coverage on every line</span>
+              </div>
+              <div class="results__metric">
+                <span class="results__metric-value">&lt;2s</span>
+                <span class="results__metric-label">Average answer time</span>
+              </div>
+              <div class="results__metric">
+                <span class="results__metric-value">48h</span>
+                <span class="results__metric-label">Typical time to live</span>
+              </div>
+            </div>
+          </article>
+          <div class="results__quotes">
+            <blockquote class="results__quote">
+              <p>
+                “We were losing weekend emergency calls to competitors with someone on the phone.
+                Now those jobs book themselves while we're still on site.”
+              </p>
+              <cite>Owner · HVAC &amp; home services</cite>
+            </blockquote>
+            <blockquote class="results__quote">
+              <p>
+                “Front desk used to drown in intake questions. The AI screens first — we only talk to people ready to schedule.”
+              </p>
+              <cite>Office manager · medical practice</cite>
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>
@@ -1139,16 +1502,17 @@
       <div class="container">
         <header class="section-head section-head--center">
           <p class="section-label">Pricing</p>
-          <h2 class="section-title" id="pricing-heading">Simple, transparent pricing.</h2>
+          <h2 class="section-title" id="pricing-heading">Pick the path that fits — most teams start on Base.</h2>
           <p class="section-sub">
-            Start with receptionist-only, scale into analytics, or go premium with full support and a custom website built for your brand.
+            Custom is a scoped conversation. Base is the default for growing teams. Premium is full-service for brands that want white-glove support and a site built in.
           </p>
         </header>
         <div class="pricing__cards">
           <article class="pricing-card">
+            <p class="pricing-card__role">Talk to us</p>
             <h3>Custom</h3>
             <p class="pricing-card__desc">
-              AI receptionist only — scoped and priced to your call volume and workflow.
+              Receptionist-only, scoped to your call volume and workflow — ideal if you want a tailored quote before committing.
             </p>
             <p class="pricing-card__price">Custom pricing</p>
             <p class="pricing-card__stripe">
@@ -1161,13 +1525,14 @@
               <li>Lead capture</li>
               <li>Custom voice</li>
             </ul>
-            <a class="btn" data-booking href="#book-demo">Get a quote</a>
+            <a class="btn btn--secondary" data-booking data-plan="custom" href="#book-demo">Talk to us</a>
           </article>
           <article class="pricing-card pricing-card--featured">
             <span class="pricing-card__badge">Most popular</span>
+            <p class="pricing-card__role">Best for most businesses</p>
             <h3>Base</h3>
             <p class="pricing-card__desc">
-              Receptionist plus analytics — see how every call and lead performs.
+              Receptionist plus analytics — see how every call and lead performs. The clear starting point for most teams.
             </p>
             <p class="pricing-card__price pricing-card__price--amount mono">$999.99 <span>/ month</span></p>
             <p class="pricing-card__stripe">
@@ -1178,12 +1543,13 @@
               <li>Analytics &amp; performance dashboard</li>
               <li>Call &amp; lead tracker</li>
             </ul>
-            <a class="btn" data-booking href="#book-demo">Get started</a>
+            <a class="btn" data-booking data-plan="base" href="#book-demo">Get started on Base</a>
           </article>
           <article class="pricing-card">
+            <p class="pricing-card__role">Enterprise &amp; full-service</p>
             <h3>Premium</h3>
             <p class="pricing-card__desc">
-              Full-service — priority support, everything in Base, and a professional website designed for you.
+              Priority support, everything in Base, and a professional website designed for your brand — for teams ready to go all-in.
             </p>
             <p class="pricing-card__price pricing-card__price--amount mono">$9,999.99 <span>/ month</span></p>
             <p class="pricing-card__stripe">
@@ -1194,46 +1560,130 @@
               <li>Full support &amp; priority</li>
               <li>Custom professional website</li>
             </ul>
-            <a class="btn" data-booking href="#book-demo">Get started</a>
+            <a class="btn btn--secondary" data-booking data-plan="premium" href="#book-demo">Get started on Premium</a>
           </article>
         </div>
       </div>
     </section>
 
     <section class="contact reveal" id="contact" aria-labelledby="contact-heading">
-      <div class="contact__inner contact__inner--book">
+      <div class="contact__inner contact__inner--book" id="book-demo">
         <header class="contact__header">
           <p class="section-label">Free strategy call</p>
-          <h2 id="contact-heading">Ready to see custom AI in action?</h2>
-          <p class="contact__sub">
-            Book a 30-minute demo — we'll show you how an AI receptionist answers every call, books appointments, and qualifies leads for your business.
+          <h2 id="contact-heading">See how many calls you're leaving on the table.</h2>
+          <p class="contact__sub" id="contact-sub">
+            Text or email us to schedule a 30-minute demo — we'll show an AI receptionist answering calls, booking appointments, and qualifying leads for your business.
           </p>
           <div class="contact__badges">
             <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>30 minutes</span>
             <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>No commitment</span>
+            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>Text or email only</span>
           </div>
         </header>
 
-        <div class="contact__calendar-wrap" id="book-demo">
-          <div class="contact__calendar-card">
-            <div class="contact__calendar-head">
-              <div>
-                <p class="contact__calendar-title">Select a time</p>
-                <p class="contact__calendar-meta">Local timezone · Free AI demo call</p>
-              </div>
-              <span class="contact__calendar-tag">Cal.com</span>
-            </div>
-            <div class="contact__calendar-body">
-              <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-free-ai-demo-call"></div>
-            </div>
-          </div>
+        <div class="plan-interest" id="plan-interest" hidden>
+          <p class="plan-interest__text" id="plan-interest-text"></p>
+          <button type="button" class="plan-interest__clear" id="plan-interest-clear">Clear selection</button>
         </div>
 
-        <div class="contact__actions">
-          <p class="contact__label">Prefer email?</p>
-          <p class="contact__email contact__block">
-            <a href="mailto:antilego.activism193@passmail.net">antilego.activism193@passmail.net</a>
-          </p>
+        <div class="schedule-channels" aria-label="Ways to schedule">
+          <a
+            class="schedule-channel"
+            id="schedule-email-direct"
+            href="mailto:antilego.activism193@passmail.net?subject=Antilego%20demo%20—%20schedule%20a%20time"
+          >
+            <span class="schedule-channel__label">Email</span>
+            <span class="schedule-channel__value">antilego.activism193@passmail.net</span>
+            <span class="schedule-channel__hint">Send available times — we'll confirm.</span>
+          </a>
+          <a
+            class="schedule-channel"
+            id="schedule-text-direct"
+            href="#schedule-form"
+          >
+            <span class="schedule-channel__label">Text</span>
+            <span class="schedule-channel__value">Leave your number</span>
+            <span class="schedule-channel__hint">We'll text you to lock a time.</span>
+          </a>
+        </div>
+
+        <div class="schedule" id="schedule-form">
+          <div class="schedule__head">
+            <h3>Request a demo time</h3>
+            <p>Tell us how to reach you and when you're free. We'll reply by text or email to confirm.</p>
+          </div>
+          <form class="schedule__form" id="demo-form" novalidate>
+            <div class="schedule__field">
+              <span id="schedule-method-label">Reach me by</span>
+              <div class="schedule__method" role="radiogroup" aria-labelledby="schedule-method-label">
+                <label class="schedule__method-option">
+                  <input type="radio" name="method" value="text" checked />
+                  <span>Text</span>
+                </label>
+                <label class="schedule__method-option">
+                  <input type="radio" name="method" value="email" />
+                  <span>Email</span>
+                </label>
+              </div>
+            </div>
+            <div class="schedule__row">
+              <div class="schedule__field">
+                <label for="demo-name">Name</label>
+                <input id="demo-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="schedule__field">
+                <label for="demo-company">Company</label>
+                <input id="demo-company" name="company" type="text" autocomplete="organization" required />
+              </div>
+            </div>
+            <div class="schedule__row">
+              <div class="schedule__field">
+                <label for="demo-phone">Mobile number</label>
+                <input id="demo-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="For texting" />
+              </div>
+              <div class="schedule__field">
+                <label for="demo-email">Work email</label>
+                <input id="demo-email" name="email" type="email" autocomplete="email" />
+              </div>
+            </div>
+            <div class="schedule__field">
+              <label for="demo-times">When are you free?</label>
+              <textarea id="demo-times" name="times" required placeholder="e.g. Tue–Thu after 2pm CT, or next Monday morning"></textarea>
+            </div>
+            <div class="schedule__row">
+              <div class="schedule__field">
+                <label for="demo-plan">Plan interest</label>
+                <select id="demo-plan" name="plan" required>
+                  <option value="">Select…</option>
+                  <option value="custom">Custom — talk to us</option>
+                  <option value="base">Base — $999.99/mo</option>
+                  <option value="premium">Premium — $9,999.99/mo</option>
+                  <option value="demo">Just the demo for now</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="schedule__field">
+                <label for="demo-usecase">Primary use case</label>
+                <select id="demo-usecase" name="usecase">
+                  <option value="">Select…</option>
+                  <option value="after-hours">After-hours / overflow calls</option>
+                  <option value="missed-leads">Recovering missed leads</option>
+                  <option value="booking">Appointment booking</option>
+                  <option value="qualify">Lead qualification</option>
+                  <option value="replace-staff">Replace / augment front desk</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="schedule__field">
+              <label for="demo-message">Anything else?</label>
+              <textarea id="demo-message" name="message" placeholder="Call volume, industry, current phone setup…"></textarea>
+            </div>
+            <div class="schedule__actions">
+              <button type="submit" class="btn" id="demo-submit">Send schedule request</button>
+            </div>
+            <p class="schedule__status" id="demo-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
@@ -1245,7 +1695,7 @@
       <p class="footer__copy">© 2026 Antilego. All rights reserved.</p>
       <div class="footer__meta">
         <div class="footer__links">
-          <a data-booking href="#book-demo">Book a demo</a>
+          <a data-booking data-plan="demo" href="#book-demo">Schedule a demo</a>
           <span class="footer__sep" aria-hidden="true">·</span>
           <a href="mailto:antilego.activism193@passmail.net">Email us</a>
         </div>
@@ -1255,6 +1705,140 @@
 
   <script>
     (function () {
+      var CONTACT_EMAIL = "antilego.activism193@passmail.net";
+      var PLAN_INFO = {
+        custom: {
+          label: "Custom (talk to us)",
+          short: "Custom"
+        },
+        base: {
+          label: "Base ($999.99/mo)",
+          short: "Base"
+        },
+        premium: {
+          label: "Premium ($9,999.99/mo)",
+          short: "Premium"
+        },
+        demo: {
+          label: "General demo",
+          short: "Demo"
+        },
+        unsure: {
+          label: "Not sure yet",
+          short: "Unsure"
+        }
+      };
+
+      var selectedPlan = "demo";
+      var contactViewed = false;
+
+      function track(name, data) {
+        try {
+          if (typeof window.va === "function") {
+            window.va("event", data ? { name: name, data: data } : { name: name });
+          }
+        } catch (err) {
+          /* analytics optional */
+        }
+      }
+
+      function getPlanInfo(plan) {
+        return PLAN_INFO[plan] || PLAN_INFO.demo;
+      }
+
+      function readPlanFromUrl() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var plan = params.get("plan");
+          if (plan && PLAN_INFO[plan]) return plan;
+        } catch (err) {
+          /* ignore */
+        }
+        return "demo";
+      }
+
+      function syncUrl(plan) {
+        try {
+          var url = new URL(window.location.href);
+          if (plan && plan !== "demo") {
+            url.searchParams.set("plan", plan);
+          } else {
+            url.searchParams.delete("plan");
+          }
+          var hash = window.location.hash || "";
+          history.replaceState(null, "", url.pathname + url.search + hash);
+        } catch (err) {
+          /* ignore */
+        }
+      }
+
+      function updatePlanUi(plan) {
+        var info = getPlanInfo(plan);
+        var banner = document.getElementById("plan-interest");
+        var text = document.getElementById("plan-interest-text");
+        var demoPlan = document.getElementById("demo-plan");
+        var emailDirect = document.getElementById("schedule-email-direct");
+
+        if (banner && text) {
+          if (plan && plan !== "demo") {
+            banner.hidden = false;
+            text.innerHTML =
+              "We'll build the demo around <strong>" +
+              info.label +
+              "</strong>.";
+          } else {
+            banner.hidden = true;
+            text.textContent = "";
+          }
+        }
+
+        if (demoPlan && plan && PLAN_INFO[plan]) {
+          demoPlan.value = plan;
+        }
+
+        if (emailDirect) {
+          var subject =
+            plan && plan !== "demo"
+              ? "Antilego demo — " + info.short + " — schedule a time"
+              : "Antilego demo — schedule a time";
+          emailDirect.href =
+            "mailto:" +
+            CONTACT_EMAIL +
+            "?subject=" +
+            encodeURIComponent(subject);
+        }
+      }
+
+      function setSelectedPlan(plan, opts) {
+        opts = opts || {};
+        selectedPlan = PLAN_INFO[plan] ? plan : "demo";
+        updatePlanUi(selectedPlan);
+
+        if (opts.updateUrl !== false) {
+          syncUrl(selectedPlan);
+        }
+      }
+
+      function getSelectedMethod() {
+        var checked = document.querySelector('input[name="method"]:checked');
+        return checked ? checked.value : "text";
+      }
+
+      function syncMethodFields() {
+        var method = getSelectedMethod();
+        var phone = document.getElementById("demo-phone");
+        var email = document.getElementById("demo-email");
+        if (!phone || !email) return;
+
+        if (method === "text") {
+          phone.required = true;
+          email.required = false;
+        } else {
+          phone.required = false;
+          email.required = true;
+        }
+      }
+
       var nav = document.getElementById("nav");
       function onScroll() {
         if (window.scrollY > 80) {
@@ -1266,9 +1850,176 @@
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
 
+      selectedPlan = readPlanFromUrl();
+      updatePlanUi(selectedPlan);
+      syncMethodFields();
+
       var bookingEls = document.querySelectorAll("[data-booking]");
       for (var b = 0; b < bookingEls.length; b++) {
-        bookingEls[b].setAttribute("href", "#book-demo");
+        (function (el) {
+          el.setAttribute("href", "#book-demo");
+          el.addEventListener("click", function () {
+            var plan = el.getAttribute("data-plan") || "demo";
+            var info = getPlanInfo(plan);
+            track("plan_clicked", {
+              plan: plan,
+              planLabel: info.label,
+              source: el.id || el.textContent.trim().slice(0, 40)
+            });
+            setSelectedPlan(plan, { updateUrl: true });
+          });
+        })(bookingEls[b]);
+      }
+
+      var clearBtn = document.getElementById("plan-interest-clear");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+          setSelectedPlan("demo", { updateUrl: true });
+          track("plan_cleared");
+        });
+      }
+
+      var textDirect = document.getElementById("schedule-text-direct");
+      if (textDirect) {
+        textDirect.addEventListener("click", function () {
+          var textRadio = document.querySelector('input[name="method"][value="text"]');
+          if (textRadio) {
+            textRadio.checked = true;
+            syncMethodFields();
+          }
+          track("schedule_text_clicked", {
+            plan: selectedPlan,
+            planLabel: getPlanInfo(selectedPlan).label
+          });
+        });
+      }
+
+      var emailDirect = document.getElementById("schedule-email-direct");
+      if (emailDirect) {
+        emailDirect.addEventListener("click", function () {
+          track("schedule_email_clicked", {
+            plan: selectedPlan,
+            planLabel: getPlanInfo(selectedPlan).label
+          });
+        });
+      }
+
+      var methodInputs = document.querySelectorAll('input[name="method"]');
+      for (var m = 0; m < methodInputs.length; m++) {
+        methodInputs[m].addEventListener("change", syncMethodFields);
+      }
+
+      var bookDemo = document.getElementById("book-demo");
+      if (bookDemo && "IntersectionObserver" in window) {
+        var viewObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !contactViewed) {
+                contactViewed = true;
+                track("contact_viewed", {
+                  plan: selectedPlan,
+                  planLabel: getPlanInfo(selectedPlan).label
+                });
+                viewObserver.disconnect();
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+        viewObserver.observe(bookDemo);
+      }
+
+      var demoForm = document.getElementById("demo-form");
+      var demoStatus = document.getElementById("demo-status");
+
+      if (demoForm) {
+        demoForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          syncMethodFields();
+
+          var method = getSelectedMethod();
+          var name = document.getElementById("demo-name").value.trim();
+          var company = document.getElementById("demo-company").value.trim();
+          var phone = document.getElementById("demo-phone").value.trim();
+          var email = document.getElementById("demo-email").value.trim();
+          var times = document.getElementById("demo-times").value.trim();
+          var plan = document.getElementById("demo-plan").value;
+          var usecase = document.getElementById("demo-usecase").value;
+          var message = document.getElementById("demo-message").value.trim();
+
+          if (!name || !company || !times || !plan) {
+            if (demoStatus) {
+              demoStatus.dataset.tone = "error";
+              demoStatus.textContent = "Please fill in all required fields.";
+            }
+            return;
+          }
+
+          if (method === "text" && !phone) {
+            if (demoStatus) {
+              demoStatus.dataset.tone = "error";
+              demoStatus.textContent = "Add a mobile number so we can text you.";
+            }
+            return;
+          }
+
+          if (method === "email" && !email) {
+            if (demoStatus) {
+              demoStatus.dataset.tone = "error";
+              demoStatus.textContent = "Add an email so we can reply.";
+            }
+            return;
+          }
+
+          var planInfo = getPlanInfo(plan);
+          var subject =
+            "Antilego demo request — " +
+            planInfo.short +
+            " — " +
+            company;
+          var body = [
+            "Preferred contact: " + (method === "text" ? "Text" : "Email"),
+            "Name: " + name,
+            "Company: " + company,
+            "Phone: " + (phone || "(none)"),
+            "Email: " + (email || "(none)"),
+            "Plan interest: " + planInfo.label,
+            "Primary use case: " + (usecase || "(not specified)"),
+            "",
+            "Availability:",
+            times,
+            "",
+            "Notes:",
+            message || "(none)"
+          ].join("\n");
+
+          track("schedule_requested", {
+            plan: plan,
+            planLabel: planInfo.label,
+            method: method,
+            usecase: usecase || "unspecified"
+          });
+
+          if (plan === "custom" || plan === "base" || plan === "premium" || plan === "demo" || plan === "unsure") {
+            setSelectedPlan(plan, { updateUrl: true });
+          }
+
+          if (demoStatus) {
+            demoStatus.dataset.tone = "";
+            demoStatus.textContent =
+              method === "text"
+                ? "Opening your email so we get your number and times…"
+                : "Opening your email client…";
+          }
+
+          window.location.href =
+            "mailto:" +
+            CONTACT_EMAIL +
+            "?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+        });
       }
 
       var reveals = document.querySelectorAll(".reveal");
@@ -1294,21 +2045,6 @@
       }
     })();
   </script>
-
-  <!-- Cal inline embed code begins -->
-  <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "free-ai-demo-call", {origin:"https://app.cal.com"});
-
-    Cal.ns["free-ai-demo-call"]("inline", {
-      elementOrSelector:"#my-cal-inline-free-ai-demo-call",
-      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-      calLink: "eli-berner/free-ai-demo-call",
-    });
-
-    Cal.ns["free-ai-demo-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-  </script>
-  <!-- Cal inline embed code ends -->
 
   <!-- Vercel Web Analytics -->
   <script>
