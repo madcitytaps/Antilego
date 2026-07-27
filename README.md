@@ -1,11 +1,11 @@
 # Antilego
 
-Marketing site for **Antilego** — an AI receptionist agency. Single-page static site; demos are scheduled by text or email (no calendar embed).
+Marketing site for **Antilego** — an AI receptionist agency. Single-page static site; demos are scheduled by email (no calendar embed).
 
 ## Stack
 
 - Static `index.html` (no build step)
-- Text / email schedule request form (opens the visitor’s mail client)
+- Email schedule request form (opens the visitor’s mail client)
 - Optional React/Tailwind scaffolding in `app/`, `components/`, `lib/` for a future Next.js migration
 
 ## Local preview

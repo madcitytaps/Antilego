@@ -39,7 +39,7 @@ function CheckIcon({ className }: { className?: string }) {
   );
 }
 
-/** Contact / schedule section stub — text or email only (no calendar embed). */
+/** Contact / schedule section stub — email only (no calendar embed). */
 export default function BookingSection() {
   const [visible, setVisible] = useState(false);
 
@@ -96,11 +96,11 @@ export default function BookingSection() {
             id="booking-heading"
             className="mt-3 text-balance font-display text-[clamp(2rem,5vw,3rem)] font-light leading-[1.12] tracking-[-0.02em] text-white"
           >
-            Text or email to schedule.
+            Email us to schedule.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-pretty font-sans text-base font-light leading-[1.65] text-[#888888] sm:text-[17px]">
-            Skip the calendar widget — tell us when you&apos;re free and how to
-            reach you. We&apos;ll confirm a 30-minute demo by text or email.
+            Tell us when you&apos;re free and we&apos;ll confirm a 30-minute
+            demo by email.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -113,20 +113,12 @@ export default function BookingSection() {
             </span>
           </div>
 
-          <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <a
-              href={mailto}
-              className="inline-flex items-center justify-center rounded bg-[#2563eb] px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white shadow-[0_0_32px_rgba(37,99,235,0.15)] transition duration-200 hover:scale-[1.025] hover:bg-[#3b82f6] hover:shadow-[0_0_48px_rgba(37,99,235,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
-            >
-              Email to schedule
-            </a>
-            <a
-              href="#schedule-form"
-              className="inline-flex items-center justify-center rounded border border-[#1e1e1e] bg-transparent px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white transition duration-200 hover:border-[#2563eb] hover:bg-[#111111] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
-            >
-              Leave your number
-            </a>
-          </div>
+          <a
+            href={mailto}
+            className="mt-10 inline-flex items-center justify-center rounded bg-[#2563eb] px-8 py-4 font-sans text-sm font-medium tracking-[0.06em] text-white shadow-[0_0_32px_rgba(37,99,235,0.15)] transition duration-200 hover:scale-[1.025] hover:bg-[#3b82f6] hover:shadow-[0_0_48px_rgba(37,99,235,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#3b82f6]"
+          >
+            Email to schedule
+          </a>
         </header>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-10 lg:items-start">

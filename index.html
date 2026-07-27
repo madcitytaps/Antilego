@@ -753,23 +753,12 @@
       flex-shrink: 0;
     }
 
-    .schedule-channels {
-      display: grid;
-      gap: 12px;
-      margin: 0 0 32px;
-    }
-
-    @media (min-width: 560px) {
-      .schedule-channels {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .schedule-channel {
+    .schedule-email {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
+      margin: 0 0 32px;
       padding: 20px 22px;
       background: var(--surface);
       border: 1px solid var(--border);
@@ -779,17 +768,17 @@
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    .schedule-channel:hover {
+    .schedule-email:hover {
       border-color: var(--accent);
       background: var(--surface-2);
     }
 
-    .schedule-channel:focus-visible {
+    .schedule-email:focus-visible {
       outline: 2px solid var(--accent-light);
       outline-offset: 3px;
     }
 
-    .schedule-channel__label {
+    .schedule-email__label {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.12em;
@@ -797,7 +786,7 @@
       color: var(--accent-light);
     }
 
-    .schedule-channel__value {
+    .schedule-email__value {
       font-family: "Space Mono", ui-monospace, monospace;
       font-size: clamp(15px, 2.4vw, 18px);
       color: var(--text);
@@ -805,7 +794,7 @@
       word-break: break-all;
     }
 
-    .schedule-channel__hint {
+    .schedule-email__hint {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 300;
@@ -1257,48 +1246,6 @@
       padding-right: 36px;
     }
 
-    .schedule__method {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .schedule__method-option {
-      position: relative;
-    }
-
-    .schedule__method-option input {
-      position: absolute;
-      opacity: 0;
-      inset: 0;
-      cursor: pointer;
-      margin: 0;
-    }
-
-    .schedule__method-option span {
-      display: block;
-      text-align: center;
-      padding: 12px 14px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-    }
-
-    .schedule__method-option input:checked + span {
-      color: var(--text);
-      border-color: var(--accent);
-      background: rgba(37, 99, 235, 0.12);
-    }
-
-    .schedule__method-option input:focus-visible + span {
-      outline: 2px solid var(--accent-light);
-      outline-offset: 2px;
-    }
-
     .schedule__actions {
       display: flex;
       flex-direction: column;
@@ -1364,7 +1311,7 @@
         <div class="hero__cta-stack">
           <a class="btn" data-booking data-plan="demo" href="#book-demo" id="cta-book-demo">Schedule a free demo</a>
           <p class="hero__tier">
-            <a data-booking data-plan="demo" href="#book-demo">Text or email us — 30 min, no commitment</a>
+            <a data-booking data-plan="demo" href="#book-demo">Email us — 30 min, no commitment</a>
           </p>
         </div>
       </div>
@@ -1572,12 +1519,12 @@
           <p class="section-label">Free strategy call</p>
           <h2 id="contact-heading">See how many calls you're leaving on the table.</h2>
           <p class="contact__sub" id="contact-sub">
-            Text or email us to schedule a 30-minute demo — we'll show an AI receptionist answering calls, booking appointments, and qualifying leads for your business.
+            Email us to schedule a 30-minute demo — we'll show an AI receptionist answering calls, booking appointments, and qualifying leads for your business.
           </p>
           <div class="contact__badges">
             <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>30 minutes</span>
             <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>No commitment</span>
-            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>Text or email only</span>
+            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>Email to schedule</span>
           </div>
         </header>
 
@@ -1586,65 +1533,35 @@
           <button type="button" class="plan-interest__clear" id="plan-interest-clear">Clear selection</button>
         </div>
 
-        <div class="schedule-channels" aria-label="Ways to schedule">
-          <a
-            class="schedule-channel"
-            id="schedule-email-direct"
-            href="mailto:antilego.activism193@passmail.net?subject=Antilego%20demo%20—%20schedule%20a%20time"
-          >
-            <span class="schedule-channel__label">Email</span>
-            <span class="schedule-channel__value">antilego.activism193@passmail.net</span>
-            <span class="schedule-channel__hint">Send available times — we'll confirm.</span>
-          </a>
-          <a
-            class="schedule-channel"
-            id="schedule-text-direct"
-            href="#schedule-form"
-          >
-            <span class="schedule-channel__label">Text</span>
-            <span class="schedule-channel__value">Leave your number</span>
-            <span class="schedule-channel__hint">We'll text you to lock a time.</span>
-          </a>
-        </div>
+        <a
+          class="schedule-email"
+          id="schedule-email-direct"
+          href="mailto:antilego.activism193@passmail.net?subject=Antilego%20demo%20—%20schedule%20a%20time"
+        >
+          <span class="schedule-email__label">Email</span>
+          <span class="schedule-email__value">antilego.activism193@passmail.net</span>
+          <span class="schedule-email__hint">Send available times — we'll confirm.</span>
+        </a>
 
         <div class="schedule" id="schedule-form">
           <div class="schedule__head">
             <h3>Request a demo time</h3>
-            <p>Tell us how to reach you and when you're free. We'll reply by text or email to confirm.</p>
+            <p>Tell us when you're free and we'll reply by email to lock a time.</p>
           </div>
           <form class="schedule__form" id="demo-form" novalidate>
-            <div class="schedule__field">
-              <span id="schedule-method-label">Reach me by</span>
-              <div class="schedule__method" role="radiogroup" aria-labelledby="schedule-method-label">
-                <label class="schedule__method-option">
-                  <input type="radio" name="method" value="text" checked />
-                  <span>Text</span>
-                </label>
-                <label class="schedule__method-option">
-                  <input type="radio" name="method" value="email" />
-                  <span>Email</span>
-                </label>
-              </div>
-            </div>
             <div class="schedule__row">
               <div class="schedule__field">
                 <label for="demo-name">Name</label>
                 <input id="demo-name" name="name" type="text" autocomplete="name" required />
               </div>
               <div class="schedule__field">
-                <label for="demo-company">Company</label>
-                <input id="demo-company" name="company" type="text" autocomplete="organization" required />
+                <label for="demo-email">Work email</label>
+                <input id="demo-email" name="email" type="email" autocomplete="email" required />
               </div>
             </div>
-            <div class="schedule__row">
-              <div class="schedule__field">
-                <label for="demo-phone">Mobile number</label>
-                <input id="demo-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="For texting" />
-              </div>
-              <div class="schedule__field">
-                <label for="demo-email">Work email</label>
-                <input id="demo-email" name="email" type="email" autocomplete="email" />
-              </div>
+            <div class="schedule__field">
+              <label for="demo-company">Company</label>
+              <input id="demo-company" name="company" type="text" autocomplete="organization" required />
             </div>
             <div class="schedule__field">
               <label for="demo-times">When are you free?</label>
@@ -1819,26 +1736,6 @@
         }
       }
 
-      function getSelectedMethod() {
-        var checked = document.querySelector('input[name="method"]:checked');
-        return checked ? checked.value : "text";
-      }
-
-      function syncMethodFields() {
-        var method = getSelectedMethod();
-        var phone = document.getElementById("demo-phone");
-        var email = document.getElementById("demo-email");
-        if (!phone || !email) return;
-
-        if (method === "text") {
-          phone.required = true;
-          email.required = false;
-        } else {
-          phone.required = false;
-          email.required = true;
-        }
-      }
-
       var nav = document.getElementById("nav");
       function onScroll() {
         if (window.scrollY > 80) {
@@ -1852,7 +1749,6 @@
 
       selectedPlan = readPlanFromUrl();
       updatePlanUi(selectedPlan);
-      syncMethodFields();
 
       var bookingEls = document.querySelectorAll("[data-booking]");
       for (var b = 0; b < bookingEls.length; b++) {
@@ -1879,21 +1775,6 @@
         });
       }
 
-      var textDirect = document.getElementById("schedule-text-direct");
-      if (textDirect) {
-        textDirect.addEventListener("click", function () {
-          var textRadio = document.querySelector('input[name="method"][value="text"]');
-          if (textRadio) {
-            textRadio.checked = true;
-            syncMethodFields();
-          }
-          track("schedule_text_clicked", {
-            plan: selectedPlan,
-            planLabel: getPlanInfo(selectedPlan).label
-          });
-        });
-      }
-
       var emailDirect = document.getElementById("schedule-email-direct");
       if (emailDirect) {
         emailDirect.addEventListener("click", function () {
@@ -1902,11 +1783,6 @@
             planLabel: getPlanInfo(selectedPlan).label
           });
         });
-      }
-
-      var methodInputs = document.querySelectorAll('input[name="method"]');
-      for (var m = 0; m < methodInputs.length; m++) {
-        methodInputs[m].addEventListener("change", syncMethodFields);
       }
 
       var bookDemo = document.getElementById("book-demo");
@@ -1935,38 +1811,19 @@
       if (demoForm) {
         demoForm.addEventListener("submit", function (e) {
           e.preventDefault();
-          syncMethodFields();
 
-          var method = getSelectedMethod();
           var name = document.getElementById("demo-name").value.trim();
-          var company = document.getElementById("demo-company").value.trim();
-          var phone = document.getElementById("demo-phone").value.trim();
           var email = document.getElementById("demo-email").value.trim();
+          var company = document.getElementById("demo-company").value.trim();
           var times = document.getElementById("demo-times").value.trim();
           var plan = document.getElementById("demo-plan").value;
           var usecase = document.getElementById("demo-usecase").value;
           var message = document.getElementById("demo-message").value.trim();
 
-          if (!name || !company || !times || !plan) {
+          if (!name || !email || !company || !times || !plan) {
             if (demoStatus) {
               demoStatus.dataset.tone = "error";
               demoStatus.textContent = "Please fill in all required fields.";
-            }
-            return;
-          }
-
-          if (method === "text" && !phone) {
-            if (demoStatus) {
-              demoStatus.dataset.tone = "error";
-              demoStatus.textContent = "Add a mobile number so we can text you.";
-            }
-            return;
-          }
-
-          if (method === "email" && !email) {
-            if (demoStatus) {
-              demoStatus.dataset.tone = "error";
-              demoStatus.textContent = "Add an email so we can reply.";
             }
             return;
           }
@@ -1978,11 +1835,9 @@
             " — " +
             company;
           var body = [
-            "Preferred contact: " + (method === "text" ? "Text" : "Email"),
             "Name: " + name,
+            "Email: " + email,
             "Company: " + company,
-            "Phone: " + (phone || "(none)"),
-            "Email: " + (email || "(none)"),
             "Plan interest: " + planInfo.label,
             "Primary use case: " + (usecase || "(not specified)"),
             "",
@@ -1996,7 +1851,7 @@
           track("schedule_requested", {
             plan: plan,
             planLabel: planInfo.label,
-            method: method,
+            method: "email",
             usecase: usecase || "unspecified"
           });
 
@@ -2006,10 +1861,7 @@
 
           if (demoStatus) {
             demoStatus.dataset.tone = "";
-            demoStatus.textContent =
-              method === "text"
-                ? "Opening your email so we get your number and times…"
-                : "Opening your email client…";
+            demoStatus.textContent = "Opening your email client…";
           }
 
           window.location.href =
