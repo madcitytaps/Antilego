@@ -570,14 +570,25 @@
     .pricing__cards {
       display: grid;
       gap: 24px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 48px auto 0;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 720px) {
       .pricing__cards {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         align-items: stretch;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .pricing__cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .pricing-card {
+        padding: 32px 22px;
       }
     }
 
@@ -1451,7 +1462,7 @@
           <p class="section-label">Pricing</p>
           <h2 class="section-title" id="pricing-heading">Pick the path that fits — most teams start on Base.</h2>
           <p class="section-sub">
-            Custom is a scoped conversation. Base is the default for growing teams. Premium is full-service for brands that want white-glove support and a site built in.
+            Custom is a scoped conversation. Starter is receptionist-only. Base is the default for growing teams. Premium is full-service for brands that want white-glove support and a site built in.
           </p>
         </header>
         <div class="pricing__cards">
@@ -1473,6 +1484,21 @@
               <li>Custom voice</li>
             </ul>
             <a class="btn btn--secondary" data-booking data-plan="custom" href="#book-demo">Talk to us</a>
+          </article>
+          <article class="pricing-card">
+            <p class="pricing-card__role">Receptionist only</p>
+            <h3>Starter</h3>
+            <p class="pricing-card__desc">
+              Just the AI receptionist on your line — answers every call so you never miss a lead.
+            </p>
+            <p class="pricing-card__price pricing-card__price--amount mono">$499 <span>/ month</span></p>
+            <p class="pricing-card__stripe">
+              Billed monthly through <strong>Stripe</strong>. AI receptionist only.
+            </p>
+            <ul>
+              <li>24/7 AI receptionist</li>
+            </ul>
+            <a class="btn btn--secondary" data-booking data-plan="starter" href="#book-demo">Get started on Starter</a>
           </article>
           <article class="pricing-card pricing-card--featured">
             <span class="pricing-card__badge">Most popular</span>
@@ -1573,6 +1599,7 @@
                 <select id="demo-plan" name="plan" required>
                   <option value="">Select…</option>
                   <option value="custom">Custom — talk to us</option>
+                  <option value="starter">Starter — $499/mo</option>
                   <option value="base">Base — $999.99/mo</option>
                   <option value="premium">Premium — $9,999.99/mo</option>
                   <option value="demo">Just the demo for now</option>
@@ -1627,6 +1654,10 @@
         custom: {
           label: "Custom (talk to us)",
           short: "Custom"
+        },
+        starter: {
+          label: "Starter ($499/mo)",
+          short: "Starter"
         },
         base: {
           label: "Base ($999.99/mo)",
@@ -1855,7 +1886,7 @@
             usecase: usecase || "unspecified"
           });
 
-          if (plan === "custom" || plan === "base" || plan === "premium" || plan === "demo" || plan === "unsure") {
+          if (plan === "custom" || plan === "starter" || plan === "base" || plan === "premium" || plan === "demo" || plan === "unsure") {
             setSelectedPlan(plan, { updateUrl: true });
           }
 
