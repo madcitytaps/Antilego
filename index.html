@@ -745,7 +745,7 @@
       position: relative;
       background: var(--bg);
       text-align: center;
-      padding: 120px 24px;
+      padding: 120px 24px 128px;
       overflow: hidden;
     }
 
@@ -774,173 +774,64 @@
     .contact__inner {
       position: relative;
       z-index: 1;
-      max-width: 720px;
+      max-width: 640px;
       margin-inline: auto;
-    }
-
-    .contact__inner--book {
-      max-width: 720px;
-    }
-
-    .contact__header {
-      margin-bottom: 40px;
-    }
-
-    .contact__badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .contact__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      font-size: 12px;
-      color: var(--text-muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-    }
-
-    .contact__badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .schedule-email {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-      margin: 0 0 32px;
-      padding: 20px 22px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s ease, background 0.2s ease;
+      align-items: center;
+      gap: 28px;
     }
 
-    .schedule-email:hover {
-      border-color: var(--accent);
-      background: var(--surface-2);
-    }
-
-    .schedule-email:focus-visible {
-      outline: 2px solid var(--accent-light);
-      outline-offset: 3px;
-    }
-
-    .schedule-email__label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-light);
-    }
-
-    .schedule-email__value {
-      font-family: "Space Mono", ui-monospace, monospace;
-      font-size: clamp(15px, 2.4vw, 18px);
-      color: var(--text);
-      letter-spacing: 0.02em;
-      word-break: break-all;
-    }
-
-    .schedule-email__hint {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.45;
+    .contact__label {
+      margin: 0;
     }
 
     .contact h2 {
       font-size: clamp(32px, 5vw, 48px);
       font-weight: 400;
       letter-spacing: -0.02em;
-      margin: 0 0 16px;
+      margin: 0;
       line-height: 1.15;
     }
 
-    .contact__sub {
-      font-size: 17px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin: 0 0 40px;
-      line-height: 1.65;
-    }
-
-    .contact__label {
-      font-size: 13px;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0 0 12px;
-    }
-
-    .contact__actions + .contact__label {
-      margin-top: 40px;
-    }
-
-    .contact__phone + .contact__label {
-      margin-top: 32px;
-    }
-
-    .contact__actions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-      margin-bottom: 8px;
-    }
-
-    .contact__block {
-      margin: 0;
-    }
-
     .contact__phone {
+      margin: 8px 0 0;
+      line-height: 1.1;
+    }
+
+    .contact__phone a {
+      display: inline-block;
       font-family: "Space Mono", ui-monospace, monospace;
-      font-size: clamp(28px, 5vw, 40px);
-      color: var(--text);
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 400;
       letter-spacing: 0.04em;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .contact__phone a,
-    .contact__email a {
-      color: inherit;
+      color: var(--text);
       text-decoration: none;
-      transition: color 0.2s ease;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: filter 0.2s ease, opacity 0.2s ease;
     }
 
-    .contact__phone a:hover,
-    .contact__email a:hover {
-      color: var(--accent-light);
+    .contact__phone a:hover {
+      filter: brightness(1.12);
     }
 
-    .contact__phone a:focus-visible,
-    .contact__email a:focus-visible {
+    .contact__phone a:focus-visible {
       outline: 2px solid var(--accent-light);
-      outline-offset: 3px;
+      outline-offset: 6px;
+      border-radius: 4px;
+      -webkit-text-fill-color: var(--text);
+      background: none;
     }
 
-    .contact__email {
-      font-family: "Space Mono", ui-monospace, monospace;
-      font-size: clamp(15px, 2.5vw, 18px);
+    .contact__hint {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 300;
       color: var(--text-muted);
       letter-spacing: 0.02em;
-      margin: 0;
-      line-height: 1.4;
-      word-break: break-all;
     }
 
     .footer {
@@ -1170,163 +1061,6 @@
       margin-top: 8px;
     }
 
-    .plan-interest {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 10px 16px;
-      margin: 0 auto 28px;
-      max-width: 640px;
-      padding: 14px 20px;
-      background: var(--surface);
-      border: 1px solid var(--accent-line);
-      border-radius: 8px;
-    }
-
-    .plan-interest[hidden] {
-      display: none;
-    }
-
-    .plan-interest__text {
-      margin: 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-
-    .plan-interest__text strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .plan-interest__clear {
-      font-size: 12px;
-      color: var(--accent-light);
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      text-decoration: underline;
-      font-family: inherit;
-    }
-
-    .plan-interest__clear:hover {
-      color: var(--text);
-    }
-
-    .schedule {
-      text-align: left;
-      margin: 0 auto;
-      padding: 36px 28px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .schedule__head {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .schedule__head h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      font-weight: 500;
-    }
-
-    .schedule__head p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    .schedule__form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .schedule__row {
-      display: grid;
-      gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .schedule__row {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .schedule__field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .schedule__field label {
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .schedule__field input,
-    .schedule__field select,
-    .schedule__field textarea {
-      font-family: inherit;
-      font-size: 15px;
-      color: var(--text);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 12px 14px;
-      width: 100%;
-      transition: border-color 0.2s ease;
-    }
-
-    .schedule__field input:focus,
-    .schedule__field select:focus,
-    .schedule__field textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    .schedule__field textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    .schedule__field select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23888888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-    }
-
-    .schedule__actions {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .schedule__status {
-      margin: 12px 0 0;
-      font-size: 13px;
-      color: var(--accent-light);
-      text-align: center;
-      min-height: 1.2em;
-    }
-
-    .schedule__status[data-tone="error"] {
-      color: #f87171;
-    }
-
   </style>
 </head>
 <body>
@@ -1348,10 +1082,10 @@
         <a class="nav__link" href="#benefits">Benefits</a>
         <a class="nav__link" href="#results">Results</a>
         <a class="nav__link" href="#pricing">Pricing</a>
-        <a class="nav__link" href="#contact">Contact</a>
+        <a class="nav__link" href="#try">Try it</a>
       </div>
       <div class="nav__actions">
-        <a class="btn btn--nav" data-booking data-plan="demo" href="#book-demo">Schedule a demo</a>
+        <a class="btn btn--nav" href="tel:+16086022732">Call the demo</a>
       </div>
     </div>
   </nav>
@@ -1373,9 +1107,9 @@
           <li><strong>Staff hours</strong> returned to the work</li>
         </ul>
         <div class="hero__cta-stack">
-          <a class="btn" data-booking data-plan="demo" href="#book-demo" id="cta-book-demo">Schedule a free demo</a>
+          <a class="btn" href="#try" id="cta-book-demo">Try our receptionist</a>
           <p class="hero__tier">
-            <a data-booking data-plan="demo" href="#book-demo">Email us — 30 min, no commitment</a>
+            <a href="tel:+16086022732">+1 (608) 602-2732</a>
           </p>
         </div>
       </div>
@@ -1536,7 +1270,7 @@
               <li>Lead capture</li>
               <li>Custom voice</li>
             </ul>
-            <a class="btn btn--secondary" data-booking data-plan="custom" href="#book-demo">Talk to us</a>
+            <a class="btn btn--secondary" href="#try">Talk to us</a>
           </article>
           <article class="pricing-card">
             <p class="pricing-card__role">Receptionist only</p>
@@ -1551,7 +1285,7 @@
             <ul>
               <li>24/7 AI receptionist</li>
             </ul>
-            <a class="btn btn--secondary" data-booking data-plan="starter" href="#book-demo">Get started on Starter</a>
+            <a class="btn btn--secondary" href="#try">Get started on Starter</a>
           </article>
           <article class="pricing-card pricing-card--featured">
             <span class="pricing-card__badge">Most popular</span>
@@ -1569,7 +1303,7 @@
               <li>Analytics &amp; performance dashboard</li>
               <li>Call &amp; lead tracker</li>
             </ul>
-            <a class="btn" data-booking data-plan="base" href="#book-demo">Get started on Base</a>
+            <a class="btn" href="#try">Get started on Base</a>
           </article>
           <article class="pricing-card">
             <p class="pricing-card__role">Enterprise &amp; full-service</p>
@@ -1586,102 +1320,20 @@
               <li>Full support &amp; priority</li>
               <li>Custom professional website</li>
             </ul>
-            <a class="btn btn--secondary" data-booking data-plan="premium" href="#book-demo">Get started on Premium</a>
+            <a class="btn btn--secondary" href="#try">Get started on Premium</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="contact reveal" id="contact" aria-labelledby="contact-heading">
-      <div class="contact__inner contact__inner--book" id="book-demo">
-        <header class="contact__header">
-          <p class="section-label">Free strategy call</p>
-          <h2 id="contact-heading">See how many calls you're leaving on the table.</h2>
-          <p class="contact__sub" id="contact-sub">
-            Email us to schedule a 30-minute demo — we'll show an AI receptionist answering calls, booking appointments, and qualifying leads for your business.
-          </p>
-          <div class="contact__badges">
-            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>30 minutes</span>
-            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>No commitment</span>
-            <span class="contact__badge"><span class="contact__badge-dot" aria-hidden="true"></span>Email to schedule</span>
-          </div>
-        </header>
-
-        <div class="plan-interest" id="plan-interest" hidden>
-          <p class="plan-interest__text" id="plan-interest-text"></p>
-          <button type="button" class="plan-interest__clear" id="plan-interest-clear">Clear selection</button>
-        </div>
-
-        <a
-          class="schedule-email"
-          id="schedule-email-direct"
-          href="mailto:antilego.activism193@passmail.net?subject=Antilego%20demo%20—%20schedule%20a%20time"
-        >
-          <span class="schedule-email__label">Email</span>
-          <span class="schedule-email__value">antilego.activism193@passmail.net</span>
-          <span class="schedule-email__hint">Send available times — we'll confirm.</span>
-        </a>
-
-        <div class="schedule" id="schedule-form">
-          <div class="schedule__head">
-            <h3>Request a demo time</h3>
-            <p>Tell us when you're free and we'll reply by email to lock a time.</p>
-          </div>
-          <form class="schedule__form" id="demo-form" novalidate>
-            <div class="schedule__row">
-              <div class="schedule__field">
-                <label for="demo-name">Name</label>
-                <input id="demo-name" name="name" type="text" autocomplete="name" required />
-              </div>
-              <div class="schedule__field">
-                <label for="demo-email">Work email</label>
-                <input id="demo-email" name="email" type="email" autocomplete="email" required />
-              </div>
-            </div>
-            <div class="schedule__field">
-              <label for="demo-company">Company</label>
-              <input id="demo-company" name="company" type="text" autocomplete="organization" required />
-            </div>
-            <div class="schedule__field">
-              <label for="demo-times">When are you free?</label>
-              <textarea id="demo-times" name="times" required placeholder="e.g. Tue–Thu after 2pm CT, or next Monday morning"></textarea>
-            </div>
-            <div class="schedule__row">
-              <div class="schedule__field">
-                <label for="demo-plan">Plan interest</label>
-                <select id="demo-plan" name="plan" required>
-                  <option value="">Select…</option>
-                  <option value="custom">Custom — talk to us</option>
-                  <option value="starter">Starter — $499/mo</option>
-                  <option value="base">Base — $999.99/mo</option>
-                  <option value="premium">Premium — $9,999.99/mo</option>
-                  <option value="demo">Just the demo for now</option>
-                  <option value="unsure">Not sure yet</option>
-                </select>
-              </div>
-              <div class="schedule__field">
-                <label for="demo-usecase">Primary use case</label>
-                <select id="demo-usecase" name="usecase">
-                  <option value="">Select…</option>
-                  <option value="after-hours">After-hours / overflow calls</option>
-                  <option value="missed-leads">Recovering missed leads</option>
-                  <option value="booking">Appointment booking</option>
-                  <option value="qualify">Lead qualification</option>
-                  <option value="replace-staff">Replace / augment front desk</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="schedule__field">
-              <label for="demo-message">Anything else?</label>
-              <textarea id="demo-message" name="message" placeholder="Call volume, industry, current phone setup…"></textarea>
-            </div>
-            <div class="schedule__actions">
-              <button type="submit" class="btn" id="demo-submit">Send schedule request</button>
-            </div>
-            <p class="schedule__status" id="demo-status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
+    <section class="contact reveal" id="try" aria-labelledby="try-heading">
+      <div class="contact__inner">
+        <p class="section-label contact__label">Live demo</p>
+        <h2 id="try-heading">Try out our receptionist.</h2>
+        <p class="contact__phone">
+          <a href="tel:+16086022732" id="demo-phone">+1 (608) 602-2732</a>
+        </p>
+        <p class="contact__hint">Call now — a live AI answers.</p>
       </div>
     </section>
   </main>
@@ -1695,7 +1347,7 @@
       <p class="footer__copy">© 2026 Antilego. All rights reserved.</p>
       <div class="footer__meta">
         <div class="footer__links">
-          <a data-booking data-plan="demo" href="#book-demo">Schedule a demo</a>
+          <a href="tel:+16086022732">+1 (608) 602-2732</a>
           <span class="footer__sep" aria-hidden="true">·</span>
           <a href="mailto:antilego.activism193@passmail.net">Email us</a>
         </div>
@@ -1705,37 +1357,6 @@
 
   <script>
     (function () {
-      var CONTACT_EMAIL = "antilego.activism193@passmail.net";
-      var PLAN_INFO = {
-        custom: {
-          label: "Custom (talk to us)",
-          short: "Custom"
-        },
-        starter: {
-          label: "Starter ($499/mo)",
-          short: "Starter"
-        },
-        base: {
-          label: "Base ($999.99/mo)",
-          short: "Base"
-        },
-        premium: {
-          label: "Premium ($9,999.99/mo)",
-          short: "Premium"
-        },
-        demo: {
-          label: "General demo",
-          short: "Demo"
-        },
-        unsure: {
-          label: "Not sure yet",
-          short: "Unsure"
-        }
-      };
-
-      var selectedPlan = "demo";
-      var contactViewed = false;
-
       function track(name, data) {
         try {
           if (typeof window.va === "function") {
@@ -1743,83 +1364,6 @@
           }
         } catch (err) {
           /* analytics optional */
-        }
-      }
-
-      function getPlanInfo(plan) {
-        return PLAN_INFO[plan] || PLAN_INFO.demo;
-      }
-
-      function readPlanFromUrl() {
-        try {
-          var params = new URLSearchParams(window.location.search);
-          var plan = params.get("plan");
-          if (plan && PLAN_INFO[plan]) return plan;
-        } catch (err) {
-          /* ignore */
-        }
-        return "demo";
-      }
-
-      function syncUrl(plan) {
-        try {
-          var url = new URL(window.location.href);
-          if (plan && plan !== "demo") {
-            url.searchParams.set("plan", plan);
-          } else {
-            url.searchParams.delete("plan");
-          }
-          var hash = window.location.hash || "";
-          history.replaceState(null, "", url.pathname + url.search + hash);
-        } catch (err) {
-          /* ignore */
-        }
-      }
-
-      function updatePlanUi(plan) {
-        var info = getPlanInfo(plan);
-        var banner = document.getElementById("plan-interest");
-        var text = document.getElementById("plan-interest-text");
-        var demoPlan = document.getElementById("demo-plan");
-        var emailDirect = document.getElementById("schedule-email-direct");
-
-        if (banner && text) {
-          if (plan && plan !== "demo") {
-            banner.hidden = false;
-            text.innerHTML =
-              "We'll build the demo around <strong>" +
-              info.label +
-              "</strong>.";
-          } else {
-            banner.hidden = true;
-            text.textContent = "";
-          }
-        }
-
-        if (demoPlan && plan && PLAN_INFO[plan]) {
-          demoPlan.value = plan;
-        }
-
-        if (emailDirect) {
-          var subject =
-            plan && plan !== "demo"
-              ? "Antilego demo — " + info.short + " — schedule a time"
-              : "Antilego demo — schedule a time";
-          emailDirect.href =
-            "mailto:" +
-            CONTACT_EMAIL +
-            "?subject=" +
-            encodeURIComponent(subject);
-        }
-      }
-
-      function setSelectedPlan(plan, opts) {
-        opts = opts || {};
-        selectedPlan = PLAN_INFO[plan] ? plan : "demo";
-        updatePlanUi(selectedPlan);
-
-        if (opts.updateUrl !== false) {
-          syncUrl(selectedPlan);
         }
       }
 
@@ -1834,131 +1378,29 @@
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
 
-      selectedPlan = readPlanFromUrl();
-      updatePlanUi(selectedPlan);
-
-      var bookingEls = document.querySelectorAll("[data-booking]");
-      for (var b = 0; b < bookingEls.length; b++) {
-        (function (el) {
-          el.setAttribute("href", "#book-demo");
-          el.addEventListener("click", function () {
-            var plan = el.getAttribute("data-plan") || "demo";
-            var info = getPlanInfo(plan);
-            track("plan_clicked", {
-              plan: plan,
-              planLabel: info.label,
-              source: el.id || el.textContent.trim().slice(0, 40)
-            });
-            setSelectedPlan(plan, { updateUrl: true });
-          });
-        })(bookingEls[b]);
-      }
-
-      var clearBtn = document.getElementById("plan-interest-clear");
-      if (clearBtn) {
-        clearBtn.addEventListener("click", function () {
-          setSelectedPlan("demo", { updateUrl: true });
-          track("plan_cleared");
+      var phoneLinks = document.querySelectorAll('a[href="tel:+16086022732"]');
+      for (var i = 0; i < phoneLinks.length; i++) {
+        phoneLinks[i].addEventListener("click", function () {
+          track("demo_phone_clicked");
         });
       }
 
-      var emailDirect = document.getElementById("schedule-email-direct");
-      if (emailDirect) {
-        emailDirect.addEventListener("click", function () {
-          track("schedule_email_clicked", {
-            plan: selectedPlan,
-            planLabel: getPlanInfo(selectedPlan).label
-          });
-        });
-      }
-
-      var bookDemo = document.getElementById("book-demo");
-      if (bookDemo && "IntersectionObserver" in window) {
-        var viewObserver = new IntersectionObserver(
+      var trySection = document.getElementById("try");
+      var tryViewed = false;
+      if (trySection && "IntersectionObserver" in window) {
+        var tryObserver = new IntersectionObserver(
           function (entries) {
             entries.forEach(function (entry) {
-              if (entry.isIntersecting && !contactViewed) {
-                contactViewed = true;
-                track("contact_viewed", {
-                  plan: selectedPlan,
-                  planLabel: getPlanInfo(selectedPlan).label
-                });
-                viewObserver.disconnect();
+              if (entry.isIntersecting && !tryViewed) {
+                tryViewed = true;
+                track("try_section_viewed");
+                tryObserver.disconnect();
               }
             });
           },
-          { threshold: 0.35 }
+          { threshold: 0.4 }
         );
-        viewObserver.observe(bookDemo);
-      }
-
-      var demoForm = document.getElementById("demo-form");
-      var demoStatus = document.getElementById("demo-status");
-
-      if (demoForm) {
-        demoForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          var name = document.getElementById("demo-name").value.trim();
-          var email = document.getElementById("demo-email").value.trim();
-          var company = document.getElementById("demo-company").value.trim();
-          var times = document.getElementById("demo-times").value.trim();
-          var plan = document.getElementById("demo-plan").value;
-          var usecase = document.getElementById("demo-usecase").value;
-          var message = document.getElementById("demo-message").value.trim();
-
-          if (!name || !email || !company || !times || !plan) {
-            if (demoStatus) {
-              demoStatus.dataset.tone = "error";
-              demoStatus.textContent = "Please fill in all required fields.";
-            }
-            return;
-          }
-
-          var planInfo = getPlanInfo(plan);
-          var subject =
-            "Antilego demo request — " +
-            planInfo.short +
-            " — " +
-            company;
-          var body = [
-            "Name: " + name,
-            "Email: " + email,
-            "Company: " + company,
-            "Plan interest: " + planInfo.label,
-            "Primary use case: " + (usecase || "(not specified)"),
-            "",
-            "Availability:",
-            times,
-            "",
-            "Notes:",
-            message || "(none)"
-          ].join("\n");
-
-          track("schedule_requested", {
-            plan: plan,
-            planLabel: planInfo.label,
-            method: "email",
-            usecase: usecase || "unspecified"
-          });
-
-          if (plan === "custom" || plan === "starter" || plan === "base" || plan === "premium" || plan === "demo" || plan === "unsure") {
-            setSelectedPlan(plan, { updateUrl: true });
-          }
-
-          if (demoStatus) {
-            demoStatus.dataset.tone = "";
-            demoStatus.textContent = "Opening your email client…";
-          }
-
-          window.location.href =
-            "mailto:" +
-            CONTACT_EMAIL +
-            "?subject=" +
-            encodeURIComponent(subject) +
-            "&body=" +
-            encodeURIComponent(body);
-        });
+        tryObserver.observe(trySection);
       }
 
       var reveals = document.querySelectorAll(".reveal");
