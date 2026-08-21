@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antilego — AI Receptionist Agency</title>
   <meta name="description" content="Stop losing leads to missed calls. Antilego AI receptionists answer every call, book appointments, and qualify leads — 24/7." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #000000;
-      --surface: #0a0a0a;
-      --surface-2: #111111;
-      --border: #1e1e1e;
-      --accent: #2563eb;
-      --accent-light: #3b82f6;
-      --accent-glow: rgba(37, 99, 235, 0.15);
+      --surface: #07080c;
+      --surface-2: #0d1018;
+      --border: #1a1e2e;
+      --accent: #4d8dff;
+      --accent-light: #8bb0ff;
+      --accent-lavender: #c5b8f5;
+      --accent-deep: #2a3f9a;
+      --accent-glow: rgba(77, 141, 255, 0.18);
+      --accent-glow-strong: rgba(77, 141, 255, 0.38);
+      --accent-wash: rgba(77, 141, 255, 0.12);
+      --accent-line: rgba(91, 155, 255, 0.38);
+      --accent-gradient: linear-gradient(135deg, #c5b8f5 0%, #6ba3ff 48%, #4d8dff 100%);
       --text: #ffffff;
-      --text-muted: #888888;
-      --text-dim: #444444;
+      --text-muted: #8e93a8;
+      --text-dim: #4a4e63;
       --container: min(1120px, calc(100% - 48px));
       --nav-height: 64px;
     }
@@ -42,6 +50,11 @@
       font-weight: 400;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: rgba(91, 155, 255, 0.35);
+      color: var(--text);
     }
 
     .grain {
@@ -67,6 +80,9 @@
     }
 
     .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: "Cormorant Garamond", serif;
       font-weight: 300;
       letter-spacing: 0.2em;
@@ -75,8 +91,20 @@
       font-size: 18px;
     }
 
+    .logo__mark {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: block;
+    }
+
     .logo--footer {
       font-size: 15px;
+    }
+
+    .logo--footer .logo__mark {
+      width: 26px;
+      height: 26px;
     }
 
     .logo:focus-visible {
@@ -224,11 +252,17 @@
     .hero__pulse {
       position: absolute;
       inset: 0;
-      background: radial-gradient(
-        ellipse 70% 50% at 50% 45%,
-        rgba(37, 99, 235, 0.12) 0%,
-        transparent 65%
-      );
+      background:
+        radial-gradient(
+          ellipse 48% 42% at 40% 42%,
+          rgba(197, 184, 245, 0.14) 0%,
+          transparent 62%
+        ),
+        radial-gradient(
+          ellipse 70% 50% at 58% 48%,
+          var(--accent-wash) 0%,
+          transparent 65%
+        );
       animation: heroPulse 6s ease-in-out infinite;
       pointer-events: none;
     }
@@ -292,18 +326,18 @@
       letter-spacing: 0.06em;
       text-decoration: none;
       color: var(--text);
-      background: var(--accent);
+      background: var(--accent-gradient);
       border: none;
       border-radius: 4px;
       cursor: pointer;
       box-shadow: 0 0 32px var(--accent-glow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
 
     .btn:hover {
-      background: var(--accent-light);
+      filter: brightness(1.08);
       transform: scale(1.025);
-      box-shadow: 0 0 48px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 0 48px var(--accent-glow-strong);
     }
 
     .btn:focus-visible {
@@ -445,7 +479,7 @@
 
       .process__step {
         padding-left: 40px;
-        border-left: 1px solid rgba(37, 99, 235, 0.35);
+        border-left: 1px solid var(--accent-line);
       }
 
       .process__step:first-child {
@@ -617,7 +651,7 @@
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-glow);
-      border: 1px solid rgba(37, 99, 235, 0.35);
+      border: 1px solid var(--accent-line);
       border-radius: 999px;
       padding: 4px 10px;
     }
@@ -713,11 +747,17 @@
       transform: translate(-50%, -50%);
       width: min(900px, 100%);
       height: min(500px, 70vh);
-      background: radial-gradient(
-        ellipse at center,
-        rgba(37, 99, 235, 0.12) 0%,
-        transparent 70%
-      );
+      background:
+        radial-gradient(
+          ellipse at 38% 50%,
+          rgba(197, 184, 245, 0.12) 0%,
+          transparent 58%
+        ),
+        radial-gradient(
+          ellipse at 62% 50%,
+          var(--accent-wash) 0%,
+          transparent 70%
+        );
       pointer-events: none;
     }
 
@@ -1130,7 +1170,7 @@
       max-width: 640px;
       padding: 14px 20px;
       background: var(--surface);
-      border: 1px solid rgba(37, 99, 235, 0.35);
+      border: 1px solid var(--accent-line);
       border-radius: 8px;
     }
 
@@ -1289,7 +1329,10 @@
 
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="nav__inner">
-      <a class="logo" href="#hero">Antilego</a>
+      <a class="logo" href="#hero">
+        <img class="logo__mark" src="logo.svg" alt="" width="32" height="32" />
+        <span>Antilego</span>
+      </a>
       <div class="nav__links">
         <a class="nav__link" href="#how-it-works">How It Works</a>
         <a class="nav__link" href="#benefits">Benefits</a>
@@ -1635,7 +1678,10 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <a class="logo logo--footer" href="#hero">Antilego</a>
+      <a class="logo logo--footer" href="#hero">
+        <img class="logo__mark" src="logo.svg" alt="" width="26" height="26" />
+        <span>Antilego</span>
+      </a>
       <p class="footer__copy">© 2026 Antilego. All rights reserved.</p>
       <div class="footer__meta">
         <div class="footer__links">
