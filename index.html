@@ -6,30 +6,31 @@
   <title>Antilego — AI Receptionist Agency</title>
   <meta name="description" content="Stop losing leads to missed calls. Antilego AI receptionists answer every call, book appointments, and qualify leads — 24/7." />
   <meta name="theme-color" content="#000000" />
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #000000;
-      --surface: #07080c;
-      --surface-2: #0d1018;
-      --border: #1a1e2e;
-      --accent: #4d8dff;
-      --accent-light: #8bb0ff;
-      --accent-lavender: #c5b8f5;
-      --accent-deep: #2a3f9a;
-      --accent-glow: rgba(77, 141, 255, 0.18);
-      --accent-glow-strong: rgba(77, 141, 255, 0.38);
-      --accent-wash: rgba(77, 141, 255, 0.12);
-      --accent-line: rgba(91, 155, 255, 0.38);
-      --accent-gradient: linear-gradient(135deg, #c5b8f5 0%, #6ba3ff 48%, #4d8dff 100%);
+      --surface: #050508;
+      --surface-2: #0b0b12;
+      --border: #1a1a28;
+      --accent: #6870d8;
+      --accent-light: #a898e8;
+      --accent-lavender: #c8b8f0;
+      --accent-deep: #303878;
+      --accent-glow: rgba(104, 112, 216, 0.2);
+      --accent-glow-strong: rgba(104, 112, 216, 0.42);
+      --accent-wash: rgba(104, 112, 216, 0.14);
+      --accent-line: rgba(168, 152, 232, 0.35);
+      --accent-gradient: linear-gradient(135deg, #c8b8f0 0%, #8890e0 45%, #5068d8 100%);
       --text: #ffffff;
-      --text-muted: #8e93a8;
-      --text-dim: #4a4e63;
+      --text-muted: #8e8ea3;
+      --text-dim: #4a4a5c;
       --container: min(1120px, calc(100% - 48px));
-      --nav-height: 64px;
+      --nav-height: 72px;
     }
 
     *,
@@ -53,7 +54,7 @@
     }
 
     ::selection {
-      background: rgba(91, 155, 255, 0.35);
+      background: rgba(168, 152, 232, 0.35);
       color: var(--text);
     }
 
@@ -82,29 +83,38 @@
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-family: "Cormorant Garamond", serif;
       font-weight: 300;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--text);
       text-decoration: none;
       font-size: 18px;
+      line-height: 1;
     }
 
     .logo__mark {
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
       display: block;
+      object-fit: contain;
+      background: #000000;
+      border-radius: 0;
+    }
+
+    .logo__word {
+      padding-top: 1px;
     }
 
     .logo--footer {
       font-size: 15px;
+      gap: 10px;
     }
 
     .logo--footer .logo__mark {
-      width: 26px;
-      height: 26px;
+      width: 36px;
+      height: 36px;
     }
 
     .logo:focus-visible {
@@ -139,7 +149,7 @@
       height: var(--nav-height);
       display: flex;
       align-items: center;
-      background: rgba(0, 0, 0, 0.85);
+      background: #000000;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -147,7 +157,7 @@
     }
 
     .nav--scrolled {
-      background: rgba(0, 0, 0, 0.95);
+      background: #000000;
     }
 
     .nav__inner {
@@ -255,7 +265,7 @@
       background:
         radial-gradient(
           ellipse 48% 42% at 40% 42%,
-          rgba(197, 184, 245, 0.14) 0%,
+          rgba(200, 184, 240, 0.14) 0%,
           transparent 62%
         ),
         radial-gradient(
@@ -750,7 +760,7 @@
       background:
         radial-gradient(
           ellipse at 38% 50%,
-          rgba(197, 184, 245, 0.12) 0%,
+          rgba(200, 184, 240, 0.12) 0%,
           transparent 58%
         ),
         radial-gradient(
@@ -1330,8 +1340,8 @@
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="nav__inner">
       <a class="logo" href="#hero">
-        <img class="logo__mark" src="logo.svg" alt="" width="32" height="32" />
-        <span>Antilego</span>
+        <img class="logo__mark" src="logo.png" alt="" width="44" height="44" decoding="async" />
+        <span class="logo__word">Antilego</span>
       </a>
       <div class="nav__links">
         <a class="nav__link" href="#how-it-works">How It Works</a>
@@ -1679,8 +1689,8 @@
   <footer class="footer">
     <div class="footer__inner">
       <a class="logo logo--footer" href="#hero">
-        <img class="logo__mark" src="logo.svg" alt="" width="26" height="26" />
-        <span>Antilego</span>
+        <img class="logo__mark" src="logo.png" alt="" width="36" height="36" decoding="async" />
+        <span class="logo__word">Antilego</span>
       </a>
       <p class="footer__copy">© 2026 Antilego. All rights reserved.</p>
       <div class="footer__meta">
