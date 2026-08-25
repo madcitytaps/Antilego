@@ -834,6 +834,31 @@
       letter-spacing: 0.02em;
     }
 
+    .contact__alt {
+      margin: 4px 0 0;
+      max-width: 420px;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--text-dim);
+    }
+
+    .contact__alt a {
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact__alt a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .contact__alt a:focus-visible {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
     .footer {
       border-top: 1px solid var(--border);
       padding: 32px 24px 40px;
@@ -1337,6 +1362,11 @@
           <a href="tel:+16086022732" id="demo-phone">+1 (608) 602-2732</a>
         </p>
         <p class="contact__hint">Call now — a live AI answers.</p>
+        <p class="contact__alt">
+          Prefer to book a call? Email
+          <a href="mailto:AntilegoCo@proton.me?subject=Antilego%20—%20book%20a%20call">AntilegoCo@proton.me</a>
+          or ask the receptionist to schedule one.
+        </p>
       </div>
     </section>
   </main>
@@ -1352,7 +1382,7 @@
         <div class="footer__links">
           <a href="tel:+16086022732">+1 (608) 602-2732</a>
           <span class="footer__sep" aria-hidden="true">·</span>
-          <a href="mailto:antilego.activism193@passmail.net">Email us</a>
+          <a href="mailto:AntilegoCo@proton.me">AntilegoCo@proton.me</a>
         </div>
       </div>
     </div>
